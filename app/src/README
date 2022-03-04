@@ -1,0 +1,10 @@
+Term Project Step 2
+Alexis Brown, John Chan, Daniel Rehman, Laurel Anderson. 
+
+Collaborative Drawing App 
+We are making a collaborative drawing app. One person will start/host the app on their device.
+Multiple people will be able to join or leave the session if it is getting hosted. There will 
+be different colors people can use. We are planning to use Java socket programing to have a 
+single server to many clients. A stretch goal is to have each person who joins the session
+have an identifiable username that the host can keep track of. We also want the username for 
+each participant show up when they are drawing. 
