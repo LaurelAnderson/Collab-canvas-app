@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#D6D6D6"
     tools:context=".MainActivity">
-    <View
+    <com.example.collab_canvas.DrawingView
         android:id="@+id/canvas"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -34,45 +34,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-<!--        <View-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_margin="1dp"-->
-<!--            android:background="#EE19AA"-->
-<!--            android:onClick="setColor"/>-->
-
-<!--        <View-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_margin="1dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:background="#ABEE1B"-->
-<!--            android:onClick="setColor"/>-->
-
-<!--        <View-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_margin="1dp"-->
-<!--            android:background="#1BABEE"-->
-<!--            android:onClick="setColor"/>-->
-
-<!--        <View-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_margin="1dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:background="#000000"-->
-<!--            android:onClick="setColor"/>-->
-
-<!--        <View-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_margin="1dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:background="#7D00FB"-->
-<!--            android:onClick="clearCanvas"/>-->
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
