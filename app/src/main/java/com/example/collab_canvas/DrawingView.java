@@ -42,7 +42,7 @@ public class DrawingView extends View {
             // set all the line attributes
             paint.setColor(0xff000000); // black for now
             paint.setStyle(Paint.Style.STROKE);
-            paint.setStrokeWidth(3f);
+            paint.setStrokeWidth(10f);
             // paint the lines in path
             canvas.drawPath(path, paint);
         }
