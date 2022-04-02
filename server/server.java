@@ -14,21 +14,21 @@ class client_handler implements Runnable {
 		System.out.println("client handler " + Thread.currentThread().getId() + " is running!");
 
 		DataInputStream in = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
-		DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+		// DataOutputStream out = new DataOutputStream(socket.getOutputStream());
 
-		String line = "";
-		while (!line.equals(".")) {
-			line = in.readUTF();
-			System.out.println("client said: " + line);
+		char c = 0;
+		while (true) {
+			c = in.readChar();
+			System.out.println("client said: " + c);
 		}
-		System.out.println("Closing connection...");
+		// System.out.println("Closing connection...");
 
-		socket.close();
-		in.close();
+		// socket.close();
+		// in.close();
 
 	 } catch (Exception e) {}}
 
-	public int get_id() {
+	public long get_id() {
 		return Thread.currentThread().getId();
 	}
 }
@@ -37,10 +37,8 @@ class server {
 
 	public static void main(String args[]) {try {
 
-		ServerSocket server = new ServerSocket(8080);
+		ServerSocket server = new ServerSocket(12000);
 		System.out.println("Server started.");
-
-	
 
 		while (true) {
 			System.out.println("Waiting for a client ...");
