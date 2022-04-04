@@ -5,10 +5,13 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
 
 public class TouchListener implements View.OnTouchListener {
 
     private DataOutputStream socket_stream;
+    private int current = -1;
 
     @Override
     public boolean onTouch(View view, MotionEvent event) {
@@ -17,37 +20,51 @@ public class TouchListener implements View.OnTouchListener {
         float y = event.getY();
 
         DrawingView drawingView = (DrawingView) view;
-        Path path;
 
         switch (event.getAction() & MotionEvent.ACTION_MASK) {
 
             case MotionEvent.ACTION_DOWN:
                 view.performClick();
-                path = new Path();
-                // Set the beginning of the next line to the point (x,y).
+                Path path = new Path();
                 path.moveTo(x, y);
-                drawingView.addPath(path);
-
-                try {
-                    socket_stream.writeChar(65);
-                } catch (Exception e) { }
-
+                current = drawingView.paths.size();
+                drawingView.paths.add(path);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            System.out.println("sending an A...");
+                             socket_stream.writeChar('A');
+                             socket_stream.writeFloat(x);
+                             socket_stream.writeFloat(y);
+                        } catch(Exception e) { e.printStackTrace(); }
+                    }
+                }).start();
                 break;
+
             case MotionEvent.ACTION_MOVE:
-                path = drawingView.getLastPath();
-                if (path != null) path.lineTo(x, y);
+                drawingView.paths.get(current).lineTo(x, y);
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            System.out.println("sending an M...");
+                            socket_stream.writeChar('M');
+                            socket_stream.writeFloat(x);
+                            socket_stream.writeFloat(y);
+                        } catch(Exception e) {e.printStackTrace();}
+                    }
+                }).start();
                 break;
         }
-
-        // mark the view as needing to be drawn
         drawingView.invalidate();
         return true;
 
     }
 
     public void setSocketStream(DataOutputStream stream) {
-        System.out.println("inside setSocketStream!");
+        System.out.println("TouchListener: set socket stream.");
         this.socket_stream = stream;
     }
-
 }

@@ -13,24 +13,12 @@ import java.util.ArrayList;
 
 public class DrawingView extends View {
 
-    private final ArrayList<Path> paths = new ArrayList<>();
-
+    public ArrayList<Path> paths = new ArrayList<>();
     public DrawingView(Context context) {
         super(context);
     }
     public DrawingView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-    }
-
-    public void addPath(Path path) {
-        paths.add(path);
-    }
-
-    public Path getLastPath() {
-        if (paths.size() > 0) {
-            return paths.get(paths.size() - 1);
-        }
-        return null;
     }
 
     @Override
@@ -47,5 +35,4 @@ public class DrawingView extends View {
             canvas.drawPath(path, paint);
         }
     }
-
 }
