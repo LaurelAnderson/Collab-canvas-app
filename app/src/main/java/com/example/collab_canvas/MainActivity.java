@@ -1,4 +1,5 @@
 package com.example.collab_canvas;
+
 import android.graphics.Path;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,7 +7,6 @@ import java.net.*;
 import java.io.*;
 
 public class MainActivity extends AppCompatActivity {
-
     DrawingView drawingView;
     private Socket socket;
     private DataInputStream in;
@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
             public void run() {try {
                     System.out.println("Draw Listener: started");
                     int current = -1;
-
                     while (true) {
                         System.out.println("Draw Listener: waiting for draw-update packet...");
                         char c = in.readChar();
@@ -26,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
                         float y = in.readFloat();
                         int s = in.readInt();
                         System.out.println("Draw Listener: received draw-update packet: ["+c+"]: @("+x+", "+y+") [s = "+s+"]");
-
                         if (c == 'A') {
                            Path path = new Path();
                            path.moveTo(x, y);
@@ -40,8 +38,7 @@ public class MainActivity extends AppCompatActivity {
         }).start();
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         System.out.println("Main: started application.");
@@ -50,8 +47,7 @@ public class MainActivity extends AppCompatActivity {
         drawingView.setOnTouchListener(touch_listener);
         System.out.println("Main: starting networking thread...");
         new Thread(new Runnable() {
-            @Override
-            public void run() {try {
+            @Override public void run() {try {
                     System.out.println("Net: Connecting to server...");
                     socket = new Socket("10.0.2.2", 8080);
                     System.out.println("Net: Connected!");
