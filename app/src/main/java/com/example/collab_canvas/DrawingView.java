@@ -1,19 +1,18 @@
 package com.example.collab_canvas;
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
-
 import androidx.annotation.Nullable;
-
 import java.util.ArrayList;
 
 public class DrawingView extends View {
 
+    public int m = 255<<24;
     public ArrayList<Path> paths = new ArrayList<>();
+    public ArrayList<Integer> attributes = new ArrayList<>();
     public DrawingView(Context context) {
         super(context);
     }
@@ -24,15 +23,13 @@ public class DrawingView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
-        for (Path path : paths) {
+        for (int i = 0; i < paths.size(); i++) {
+            int s = attributes.get(i);
             Paint paint = new Paint();
-            // set all the line attributes
-            paint.setColor(0xff000000); // black for now
+            paint.setColor(s | m);
+            paint.setStrokeWidth((s & m) >> 24);
             paint.setStyle(Paint.Style.STROKE);
-            paint.setStrokeWidth(10f);
-            // paint the lines in path
-            canvas.drawPath(path, paint);
+            canvas.drawPath(paths.get(i), paint);
         }
     }
 }
