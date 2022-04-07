@@ -9,7 +9,7 @@ public class TouchListener implements View.OnTouchListener {
     private DataOutputStream out;
     private int current = -1;
     private boolean erasing = false;
-
+    public void setSocketStream(DataOutputStream o) { out = o; }
     @Override public boolean onTouch(View view, MotionEvent event) {
         float x = event.getX();
         float y = event.getY();
@@ -44,5 +44,4 @@ public class TouchListener implements View.OnTouchListener {
         drawingView.invalidate();
         return true;
     }
-    public void setSocketStream(DataOutputStream o) { out = o; }
 }
