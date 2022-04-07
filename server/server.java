@@ -5,9 +5,7 @@ import java.util.ArrayList;
 class server {
     public static void main(String args[]) {try {
         ServerSocket server = new ServerSocket(8080);
-        System.out.println("Server started.");
         ArrayList<Socket> clients = new ArrayList<Socket>();
-
         while (true) {
             System.out.println("Server: Waiting for a client...");
             Socket socket = server.accept();
@@ -16,20 +14,14 @@ class server {
                     long id = Thread.currentThread().getId();
                     int ci = clients.size();
                     clients.add(socket);
-                    System.out.println("thread "+id+" is running! "+"(ci = "+ci+")");
+                    System.out.println("client "+ci+" is connected! (thread = "+id+")");
                     DataInputStream in = new DataInputStream(socket.getInputStream());
-                    char c = 0; int s = 0;
-                    float x = 0, y = 0;
-                    boolean running = true;
-                    while (running) {
-                        System.out.println("waiting to receive draw-update from client #"+ci+"...");
-                        try {c = in.readChar(); } catch(EOFException eof) {
-                            System.out.println("---> client #"+ci+" disconnected!");
-                            break;
-                        }
+                    char c = 0; int s = 0; float x = 0, y = 0;
+                    while (true) {
+                        System.out.println("waiting for packet from client #"+ci+"...");
+                        try {c = in.readChar(); } catch(EOFException eof) { break; }
                         x = in.readFloat(); y = in.readFloat(); s = in.readInt();
-                        System.out.println("Received from client #"+ci+" draw-update = ["+c+"]: @("+x+", "+y+") [s = "+s+"]");
-                        System.out.println("Broadcasting to other clients...");
+                        System.out.println("Received client #"+ci+" draw-update ["+c+"]: @("+x+", "+y+") [s = "+s+"]");
                         for (int i = 0; i < clients.size(); i++) { 
                             if (i == ci) continue;
                             System.out.println("\tBroadcasting to client #"+i+": ["+c+"]: @("+x+", "+y+") [s = "+s+"]");
@@ -42,8 +34,7 @@ class server {
                     }
                     System.out.println("Closing connection with client #"+ci+"...");
                     try { clients.remove(ci); } catch(IndexOutOfBoundsException e) { }
-                    socket.close();
-                    in.close();
+                    socket.close(); in.close();
                 } catch (Exception e) { e.printStackTrace(); }}
             }).start();
         }
