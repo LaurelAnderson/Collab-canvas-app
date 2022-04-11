@@ -10,7 +10,7 @@ public class MainActivity extends AppCompatActivity {
     DrawingView drawingView;
     private Socket socket;
     private ObjectInputStream in;
-    private ObjectOutputStream out;
+    private ObjectOutputStream o;
     private TouchListener touch_listener;
 
     private void start_draw_listener() {
@@ -47,15 +47,33 @@ public class MainActivity extends AppCompatActivity {
         touch_listener = new TouchListener();
         drawingView.setOnTouchListener(touch_listener);
         new Thread(new Runnable() {
-            @Override public void run() {try {
+            @Override public void run() {
                     System.out.println("Connecting to server...");
+                try {
                     socket = new Socket("10.0.2.2", 8080);
-                    System.out.println("Connected!");
-                    in = new ObjectInputStream(socket.getInputStream());
-                    out = new ObjectOutputStream(socket.getOutputStream());
-                    touch_listener.setSocketStream(out);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("Connected!");
+//                try {
+//                    in = new ObjectInputStream(socket.getInputStream());
+//                } catch (IOException e) {
+//                    System.out.println("Dummy input!");
+//                    e.printStackTrace();
+//                }
+//                try {
+//                    o = new ObjectOutputStream(socket.getOutputStream());
+//                } catch (IOException e) {
+//                    System.out.println("Dummy output!");
+//                    e.printStackTrace();
+//                }
+
+                System.out.println("out is: " + o);
+                    System.out.flush();
+                    touch_listener.setSocketStream(socket);
+                    System.out.flush();
                     start_draw_listener();
-                } catch (IOException i) { i.printStackTrace(); }}
+                }
         }).start();
     }
 }

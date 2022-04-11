@@ -4,13 +4,24 @@ import android.graphics.Path;
 import android.view.MotionEvent;
 import android.view.View;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.net.Socket;
 
 public class TouchListener implements View.OnTouchListener {
-    private ObjectOutputStream out;
+    private ObjectOutputStream o;
     private int current = -1;
     private boolean erasing = false;
-    public void setSocketStream(ObjectOutputStream o) { out = o; }
+    public void setSocketStream(Socket socket) {
+        if (o == null) System.out.println("We have null");
+        else System.out.println("we good");
+//        this.o = o;
+        try {
+            this.o = new ObjectOutputStream(socket.getOutputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     @Override public boolean onTouch(View view, MotionEvent event) {
         float x = event.getX();
         float y = event.getY();
@@ -32,7 +43,7 @@ public class TouchListener implements View.OnTouchListener {
                         // create packet + send over stream
 //                        Packet pack =
 //                        out.writeChar('A'); out.writeFloat(x); out.writeFloat(y); out.writeInt(s);
-                        out.writeObject(new Packet('A', x, y, s));
+                        o.writeObject(new Packet('A', x, y, s));
 
                     } catch(Exception e) { e.printStackTrace(); }}
                 }).start();
@@ -44,7 +55,8 @@ public class TouchListener implements View.OnTouchListener {
                     public void run() {try {
                         // create packet + send over stream
 //                        out.writeChar('M'); out.writeFloat(x); out.writeFloat(y); out.writeInt(0);
-                        out.writeObject(new Packet('M', x, y, 0));
+                        if (o == null) System.out.println("Out is null");
+                        o.writeObject(new Packet('M', x, y, 0));
                     } catch(Exception e) {e.printStackTrace();}}
                 }).start();
                 break;

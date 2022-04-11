@@ -9,8 +9,8 @@ public class Packet implements Serializable {
 
     public Packet(char action, float x, float y, int color) {
         this.action = action;
-        x_coord = x;
-        y_coord = y;
+        this.x_coord = x;
+        this.y_coord = y;
         this.color = color;
     }
 }
