@@ -4,12 +4,13 @@ import android.graphics.Path;
 import android.view.MotionEvent;
 import android.view.View;
 import java.io.DataOutputStream;
+import java.io.ObjectOutputStream;
 
 public class TouchListener implements View.OnTouchListener {
-    private DataOutputStream out;
+    private ObjectOutputStream out;
     private int current = -1;
     private boolean erasing = false;
-    public void setSocketStream(DataOutputStream o) { out = o; }
+    public void setSocketStream(ObjectOutputStream o) { out = o; }
     @Override public boolean onTouch(View view, MotionEvent event) {
         float x = event.getX();
         float y = event.getY();
