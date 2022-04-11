@@ -28,7 +28,12 @@ public class TouchListener implements View.OnTouchListener {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {try {
-                        out.writeChar('A'); out.writeFloat(x); out.writeFloat(y); out.writeInt(s);
+
+                        // create packet + send over stream
+//                        Packet pack =
+//                        out.writeChar('A'); out.writeFloat(x); out.writeFloat(y); out.writeInt(s);
+                        out.writeObject(new Packet('A', x, y, s));
+
                     } catch(Exception e) { e.printStackTrace(); }}
                 }).start();
                 break;
@@ -37,7 +42,9 @@ public class TouchListener implements View.OnTouchListener {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {try {
-                        out.writeChar('M'); out.writeFloat(x); out.writeFloat(y); out.writeInt(0);
+                        // create packet + send over stream
+//                        out.writeChar('M'); out.writeFloat(x); out.writeFloat(y); out.writeInt(0);
+                        out.writeObject(new Packet('M', x, y, 0));
                     } catch(Exception e) {e.printStackTrace();}}
                 }).start();
                 break;

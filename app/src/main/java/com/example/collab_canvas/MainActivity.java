@@ -18,7 +18,15 @@ public class MainActivity extends AppCompatActivity {
             public void run() {try {
                     int current = -1;
                     while (true) {
-                        char c = in.readChar(); float x = in.readFloat(), y = in.readFloat(); int s = in.readInt();
+
+                        // change to packet
+//                        char c = in.readChar(); float x = in.readFloat(), y = in.readFloat(); int s = in.readInt();
+                        Packet pack = (Packet)in.readObject();
+                        char c = pack.action;
+                        float x = pack.x_coord;
+                        float y = pack.y_coord;
+                        int s = pack.color;
+
                         System.out.println("Received draw-update: ["+c+"]: @("+x+", "+y+") [s = "+s+"]");
                         if (c == 'A') {
                            Path path = new Path();
@@ -29,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                         } else if (c == 'M') drawingView.paths.get(current).lineTo(x, y);
                         drawingView.invalidate();
                     }
-                } catch(IOException i) {i.printStackTrace();}}
+                } catch(Exception i) {i.printStackTrace();}}
         }).start();
     }
     @Override protected void onCreate(Bundle savedInstanceState) {

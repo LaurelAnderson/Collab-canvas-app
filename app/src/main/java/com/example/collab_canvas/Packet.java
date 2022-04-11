@@ -3,11 +3,11 @@ import java.io.Serializable;
 
 public class Packet implements Serializable {
     char action;
-    int x_coord;
-    int y_coord;
+    float x_coord;
+    float y_coord;
     int color;
 
-    public Packet(char action, int x, int y, int color) {
+    public Packet(char action, float x, float y, int color) {
         this.action = action;
         x_coord = x;
         y_coord = y;
