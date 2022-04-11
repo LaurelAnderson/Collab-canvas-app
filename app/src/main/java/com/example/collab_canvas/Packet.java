@@ -7,9 +7,8 @@ public class Packet implements Serializable {
     int y_coord;
     int color;
 
-    public Packet(boolean isMoveAction, int x, int y, int color) {
-        if (isMoveAction) action = 'M';
-        else action = 'A';
+    public Packet(char action, int x, int y, int color) {
+        this.action = action;
         x_coord = x;
         y_coord = y;
         this.color = color;
