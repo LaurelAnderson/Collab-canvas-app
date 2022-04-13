@@ -1,6 +1,6 @@
 import java.net.*;
 import java.io.*;
-import java.util.ArrayList; 
+import java.util.ArrayList;
 
 class server {
     public static void main(String args[]) {try {
@@ -15,20 +15,26 @@ class server {
                     int ci = clients.size();
                     clients.add(socket);
                     System.out.println("client "+ci+" is connected! (thread = "+id+")");
-                    DataInputStream in = new DataInputStream(socket.getInputStream());
-                    char c = 0; int s = 0; float x = 0, y = 0;
+                    ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
                     while (true) {
                         System.out.println("waiting for packet from client #"+ci+"...");
-                        try {c = in.readChar(); } catch(EOFException eof) { break; }
-                        x = in.readFloat(); y = in.readFloat(); s = in.readInt();
-                        System.out.println("Received client #"+ci+" draw-update ["+c+"]: @("+x+", "+y+") [s = "+s+"]");
+
+                        // rewrite this
+                        // get packet over socket
+                        Packet pack = null;
+                        try {pack = (Packet)in.readObject();} catch(EOFException e) { break; }
+
+                        System.out.println("Received client");
                         for (int i = 0; i < clients.size(); i++) { 
                             if (i == ci) continue;
-                            System.out.println("\tBroadcasting to client #"+i+": ["+c+"]: @("+x+", "+y+") [s = "+s+"]");
                             Socket client = clients.get(i);
                             try { 
-                                DataOutputStream o = new DataOutputStream(client.getOutputStream());
-                                o.writeChar(c); o.writeFloat(x); o.writeFloat(y); o.writeInt(s); 
+                                ObjectOutputStream o = new ObjectOutputStream(client.getOutputStream());
+
+                                // rewrite this
+                                // send same packet back over other stream
+                                o.writeObject(pack);
+
                             } catch(SocketException e) { continue; }
                         }
                     }
@@ -37,6 +43,7 @@ class server {
                     socket.close(); in.close();
                 } catch (Exception e) { e.printStackTrace(); }}
             }).start();
+
         }
     } catch(Exception e) { e.printStackTrace(); }}
 }
