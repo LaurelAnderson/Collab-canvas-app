@@ -7,6 +7,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import com.example.networking.Packet;
 
 public class TouchListener implements View.OnTouchListener {
     private ObjectOutputStream o;

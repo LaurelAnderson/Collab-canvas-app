@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.net.*;
 import java.io.*;
 
+import com.example.networking.Packet;
+
 public class MainActivity extends AppCompatActivity {
     DrawingView drawingView;
     private Socket socket;
