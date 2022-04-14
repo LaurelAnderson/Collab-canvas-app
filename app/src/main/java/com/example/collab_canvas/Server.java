@@ -1,22 +1,10 @@
+package com.example.collab_canvas;
+
 import java.net.*;
 import java.io.*;
 import java.util.ArrayList;
 
-class Packet implements Serializable {
-    char action;
-    float x_coord;
-    float y_coord;
-    int color;
-
-    public Packet(char action, float x, float y, int color) {
-        this.action = action;
-        this.x_coord = x;
-        this.y_coord = y;
-        this.color = color;
-    }
-}
-
-class server {
+public class Server {
     public static void main(String args[]) {try {
         ServerSocket server = new ServerSocket(8080);
         ArrayList<Socket> clients = new ArrayList<Socket>();
@@ -29,7 +17,7 @@ class server {
                     int ci = clients.size();
                     clients.add(socket);
                     System.out.println("client "+ci+" is connected! (thread = "+id+")");
-		    
+
                     ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
                     while (true) {
                         System.out.println("waiting for packet from client #"+ci+"...");
@@ -39,10 +27,10 @@ class server {
                         Packet packet = (Packet) in.readObject();
 
                         System.out.println("Received client");
-                        for (int i = 0; i < clients.size(); i++) { 
+                        for (int i = 0; i < clients.size(); i++) {
                             if (i == ci) continue;
                             Socket client = clients.get(i);
-                            try { 
+                            try {
                                 ObjectOutputStream o = new ObjectOutputStream(client.getOutputStream());
 
                                 // rewrite this

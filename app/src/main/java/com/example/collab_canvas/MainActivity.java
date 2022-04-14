@@ -9,14 +9,13 @@ import java.io.*;
 public class MainActivity extends AppCompatActivity {
     DrawingView drawingView;
     private Socket socket;
-    private ObjectInputStream in;
-    private ObjectOutputStream o;
     private TouchListener touch_listener;
 
     private void start_draw_listener() {
         new Thread(new Runnable() {
             public void run() {try {
                     int current = -1;
+                    ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
                     while (true) {
 
                         // change to packet
@@ -41,39 +40,32 @@ public class MainActivity extends AppCompatActivity {
         }).start();
     }
     @Override protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        drawingView = findViewById(R.id.canvas);
-        touch_listener = new TouchListener();
-        drawingView.setOnTouchListener(touch_listener);
-        new Thread(new Runnable() {
-            @Override public void run() {
-                    System.out.println("Connecting to server...");
-                try {
-                    socket = new Socket("10.0.2.2", 8080);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                System.out.println("Connected!");
-//                try {
-//                    in = new ObjectInputStream(socket.getInputStream());
-//                } catch (IOException e) {
-//                    System.out.println("Dummy input!");
-//                    e.printStackTrace();
-//                }
-//                try {
-//                    o = new ObjectOutputStream(socket.getOutputStream());
-//                } catch (IOException e) {
-//                    System.out.println("Dummy output!");
-//                    e.printStackTrace();
-//                }
 
-                System.out.println("out is: " + o);
-                    System.out.flush();
+            super.onCreate(savedInstanceState);
+            System.out.println("started!1");  //
+            setContentView(R.layout.activity_main);
+            drawingView = findViewById(R.id.canvas);
+            touch_listener = new TouchListener();
+            drawingView.setOnTouchListener(touch_listener);
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {try {
+                    System.out.println("Connecting to server..."); System.out.flush(); //
+
+                    try {
+                        socket = new Socket("10.0.2.2", 8080);
+                        System.out.println("connected.");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
                     touch_listener.setSocketStream(socket);
-                    System.out.flush();
                     start_draw_listener();
-                }
-        }).start();
-    }
+                    System.out.println("done.");
+
+                }catch(Exception e){ e.printStackTrace(); }}
+            }).start();
+        }
+
 }

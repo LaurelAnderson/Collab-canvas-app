@@ -13,14 +13,21 @@ public class TouchListener implements View.OnTouchListener {
     private int current = -1;
     private boolean erasing = false;
     public void setSocketStream(Socket socket) {
-        if (o == null) System.out.println("We have null");
-        else System.out.println("we good");
-//        this.o = o;
+
         try {
             this.o = new ObjectOutputStream(socket.getOutputStream());
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+
+        if (this.o == null)
+            System.out.println("setSocketStream: this.o is null");
+        else
+            System.out.println("setSocketStream: this.o is not null");
+//        this.o = o;
+
     }
     @Override public boolean onTouch(View view, MotionEvent event) {
         float x = event.getX();
@@ -43,6 +50,8 @@ public class TouchListener implements View.OnTouchListener {
                         // create packet + send over stream
 //                        Packet pack =
 //                        out.writeChar('A'); out.writeFloat(x); out.writeFloat(y); out.writeInt(s);
+                        System.out.println(o);
+                        System.out.println("sending: " +x+ ", " +y+ ", " +s);
                         o.writeObject(new Packet('A', x, y, s));
 
                     } catch(Exception e) { e.printStackTrace(); }}
