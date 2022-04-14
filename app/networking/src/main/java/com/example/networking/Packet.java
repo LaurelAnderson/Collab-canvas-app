@@ -1,11 +1,12 @@
-package com.example.collab_canvas;
+package com.example.networking;
+
 import java.io.Serializable;
 
 public class Packet implements Serializable {
-    char action;
-    float x_coord;
-    float y_coord;
-    int color;
+    public char action;
+    public float x_coord;
+    public float y_coord;
+    public int color;
 
     public Packet(char action, float x, float y, int color) {
         this.action = action;

@@ -7,6 +7,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import com.example.networking.Packet;
 
 public class TouchListener implements View.OnTouchListener {
     private ObjectOutputStream o;
@@ -19,8 +20,6 @@ public class TouchListener implements View.OnTouchListener {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
 
         if (this.o == null)
             System.out.println("setSocketStream: this.o is null");
@@ -48,8 +47,6 @@ public class TouchListener implements View.OnTouchListener {
                     public void run() {try {
 
                         // create packet + send over stream
-//                        Packet pack =
-//                        out.writeChar('A'); out.writeFloat(x); out.writeFloat(y); out.writeInt(s);
                         System.out.println(o);
                         System.out.println("sending: " +x+ ", " +y+ ", " +s);
                         o.writeObject(new Packet('A', x, y, s));
