@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     @Override protected void onCreate(Bundle savedInstanceState) {
 
             super.onCreate(savedInstanceState);
-            System.out.println("started!1");  //
+            System.out.println("started!");  //
             setContentView(R.layout.activity_main);
             drawingView = findViewById(R.id.canvas);
             touch_listener = new TouchListener();
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
                     touch_listener.setSocketStream(socket);
                     start_draw_listener();
-                    System.out.println("done.");
+                    System.out.println("started touch and draw listener.");
 
                 }catch(Exception e){ e.printStackTrace(); }}
             }).start();
