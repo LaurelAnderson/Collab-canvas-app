@@ -10,23 +10,10 @@ import java.net.Socket;
 import com.example.networking.Packet;
 
 public class TouchListener implements View.OnTouchListener {
-    private ObjectOutputStream o;
+    private Socket socket;
     private int current = -1;
     private boolean erasing = false;
-    public void setSocketStream(Socket socket) {
-
-        try {
-            this.o = new ObjectOutputStream(socket.getOutputStream());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        if (this.o == null)
-            System.out.println("setSocketStream: this.o is null");
-        else
-            System.out.println("setSocketStream: this.o is not null");
-
-    }
+    public void setSocketStream(Socket socket) { this.socket = socket; }
     @Override public boolean onTouch(View view, MotionEvent event) {
         float x = event.getX();
         float y = event.getY();
@@ -46,8 +33,9 @@ public class TouchListener implements View.OnTouchListener {
                     public void run() {try {
 
                         // create packet + send over stream
-                        System.out.println(o);
+
                         System.out.println("sending: " +x+ ", " +y+ ", " +s);
+                        ObjectOutputStream o = new ObjectOutputStream(socket.getOutputStream());
                         o.writeObject(new Packet('A', x, y, s));
 
                     } catch(Exception e) { e.printStackTrace(); }}
@@ -60,8 +48,10 @@ public class TouchListener implements View.OnTouchListener {
                     public void run() {try {
                         // create packet + send over stream
 //                        out.writeChar('M'); out.writeFloat(x); out.writeFloat(y); out.writeInt(0);
-                        if (o == null) System.out.println("Out is null");
+
+                        ObjectOutputStream o = new ObjectOutputStream(socket.getOutputStream());
                         o.writeObject(new Packet('M', x, y, 0));
+
                     } catch(Exception e) {e.printStackTrace();}}
                 }).start();
                 break;

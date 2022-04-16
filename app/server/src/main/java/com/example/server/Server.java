@@ -20,12 +20,12 @@ public class Server {
                     clients.add(socket);
                     System.out.println("client "+ci+" is connected! (thread = "+id+")");
 
-                    ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
                     while (true) {
                         System.out.println("waiting for packet from client #"+ci+"...");
 
                         // rewrite this
                         // get packet over socke
+                        ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
                         Packet packet = (Packet) in.readObject();
 
                         System.out.println("Received client " + clients.size());
