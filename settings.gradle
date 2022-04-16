@@ -14,3 +14,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Collab-Canvas"
 include ':app'
+include ':networking'
+project(':networking').projectDir = new File(rootDir, 'app/networking/')
+include ':networking'

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Collab-Canvas.iml" filepath="$PROJECT_DIR$/.idea/modules/Collab-Canvas.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Collab-Canvas.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Collab-Canvas.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/networking/Collab-Canvas.networking.iml" filepath="$PROJECT_DIR$/.idea/modules/app/networking/Collab-Canvas.networking.iml" />
     </modules>
   </component>
 </project>
