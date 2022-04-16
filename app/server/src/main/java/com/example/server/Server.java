@@ -31,7 +31,7 @@ public class Server {
                         System.out.println("Received client " + clients.size());
                         for (int i = 0; i < clients.size(); i++) {
                             System.out.println("Hello");
-                            if (i == ci) continue;
+                            if (i == ci) continue; // dont send ourselves a broadcast packet, because we already know lol.
                             System.out.println("Goodbye");
                             Socket client = clients.get(i);
 

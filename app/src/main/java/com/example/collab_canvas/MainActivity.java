@@ -17,11 +17,18 @@ public class MainActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             public void run() {try {
                     int current = -1;
-                    ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+
+                    System.out.println("constructing object input stream...");
+
                     while (true) {
+
+                        ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
 
                         // change to packet
 //                        char c = in.readChar(); float x = in.readFloat(), y = in.readFloat(); int s = in.readInt();
+
+                        System.out.println("draw_listener: waiting for object...");
+
                         Packet pack = (Packet)in.readObject();
                         char c = pack.action;
                         float x = pack.x_coord;
@@ -63,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     touch_listener.setSocketStream(socket);
+
                     start_draw_listener();
                     System.out.println("started touch and draw listener.");
 
