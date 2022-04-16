@@ -25,7 +25,6 @@ public class TouchListener implements View.OnTouchListener {
             System.out.println("setSocketStream: this.o is null");
         else
             System.out.println("setSocketStream: this.o is not null");
-//        this.o = o;
 
     }
     @Override public boolean onTouch(View view, MotionEvent event) {

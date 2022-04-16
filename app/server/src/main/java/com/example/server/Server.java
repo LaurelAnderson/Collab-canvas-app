@@ -25,7 +25,7 @@ public class Server {
                         System.out.println("waiting for packet from client #"+ci+"...");
 
                         // rewrite this
-                        // get packet over socket
+                        // get packet over socke
                         Packet packet = (Packet) in.readObject();
 
                         System.out.println("Received client " + clients.size());
