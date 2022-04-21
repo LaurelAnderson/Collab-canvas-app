@@ -2,6 +2,8 @@ package com.example.collab_canvas;
 
 import android.graphics.Path;
 import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 import java.net.*;
 import java.io.*;
@@ -48,6 +50,12 @@ public class MainActivity extends AppCompatActivity {
                 } catch(Exception i) {i.printStackTrace();}}
         }).start();
     }
+
+    public void eraseButton(View view) { touch_listener.setColor(0x40ffffff); }
+    public void blueButton(View view) { System.out.println("GREEN"); touch_listener.setColor(0x102196F3); }
+    public void purpleButton(View view) { System.out.println("PURPLE"); touch_listener.setColor(0x10673AB7); }
+    public void greenButton(View view) { System.out.println("BLUE"); touch_listener.setColor(0x10AAF0D1); }
+
     @Override protected void onCreate(Bundle savedInstanceState) {
 
             super.onCreate(savedInstanceState);

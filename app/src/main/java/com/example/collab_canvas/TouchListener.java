@@ -10,18 +10,20 @@ import java.net.Socket;
 import com.example.networking.Packet;
 
 public class TouchListener implements View.OnTouchListener {
+
     private Socket socket;
     private int current = -1;
-    private boolean erasing = false;
+    private int color = 10 << 24;
     public void setSocketStream(Socket socket) { this.socket = socket; }
+    public void setColor(int c) { color = c; }
     @Override public boolean onTouch(View view, MotionEvent event) {
         float x = event.getX();
         float y = event.getY();
-        int s = erasing ? 0x40ffffff : 10 << 24;
+        int s = color; //erasing ? 0x40ffffff : 10 << 24;
         DrawingView drawingView = (DrawingView) view;
         switch (event.getAction() & MotionEvent.ACTION_MASK) {
             case MotionEvent.ACTION_DOWN:
-                if (x < 50 && y < 50) erasing = !erasing; // temporary
+//                if (x < 50 && y < 50) erasing = !erasing; // temporary
                 view.performClick();
                 Path path = new Path();
                 path.moveTo(x, y);

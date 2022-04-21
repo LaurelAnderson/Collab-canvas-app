@@ -15,12 +15,13 @@ public class DrawingView extends View {
     public ArrayList<Integer> attributes = new ArrayList<>();
     public DrawingView(Context context) { super(context); }
     public DrawingView(Context context, @Nullable AttributeSet attrs) { super(context, attrs); }
+
     @Override protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         for (int i = 0; i < paths.size(); i++) {
             int s = attributes.get(i);
-            paint.setColor(s|(255<<24));
-            paint.setStrokeWidth(s>>24);
+            paint.setColor(s|(255<<24)); // set the color based on the lower 3 bytes of s.
+            paint.setStrokeWidth(s>>24); // set the stroke width based on the upper byte of s.
             paint.setStyle(Paint.Style.STROKE);
             canvas.drawPath(paths.get(i), paint);
         }

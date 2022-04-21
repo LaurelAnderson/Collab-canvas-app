@@ -11,45 +11,52 @@ public class Server {
         ServerSocket server = new ServerSocket(8080);
         final ArrayList<Socket> clients = new ArrayList<Socket>();
         while (true) {
-            System.out.println("Server: Waiting for a client...");
-            final Socket socket = server.accept();
-            new Thread(new Runnable() {
-                public void run() {try {
-                    long id = Thread.currentThread().getId();
-                    int ci = clients.size();
-                    clients.add(socket);
-                    System.out.println("client "+ci+" is connected! (thread = "+id+")");
 
-                    while (true) {
-                        System.out.println("waiting for packet from client #"+ci+"...");
+            if (clients.size() > 5) Thread.sleep(50);
+            else {
+                System.out.println("Server: Waiting for a client...");
+                final Socket socket = server.accept();
 
-                        // rewrite this
-                        // get packet over socke
-                        ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
-                        Packet packet = (Packet) in.readObject();
+                new Thread(new Runnable() {
+                    public void run() {try {
+                        long id = Thread.currentThread().getId();
+                        int ci = clients.size();
+                        clients.add(socket);
+                        System.out.println("client "+ci+" is connected! (thread = "+id+")");
 
-                        System.out.println("Received client " + clients.size());
-                        for (int i = 0; i < clients.size(); i++) {
-                            System.out.println("Hello");
-                            if (i == ci) continue; // dont send ourselves a broadcast packet, because we already know lol.
-                            System.out.println("Goodbye");
-                            Socket client = clients.get(i);
+                        while (true) {
+                            System.out.println("waiting for packet from client #"+ci+"...");
 
-                            try {
-                                ObjectOutputStream o = new ObjectOutputStream(client.getOutputStream());
+                            // rewrite this
+                            // get packet over socke
+                            ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+                            Packet packet = (Packet) in.readObject();
 
-                                // send same packet back over other stream
-                                o.writeObject(packet);
-                                System.out.println("We are sending a packet");
+                            System.out.println("Received client " + clients.size());
+                            for (int i = 0; i < clients.size(); i++) {
+                                System.out.println("Hello");
+                                if (i == ci) continue; // dont send ourselves a broadcast packet, because we already know lol.
+                                System.out.println("Goodbye");
+                                Socket client = clients.get(i);
 
-                            } catch(SocketException e) { continue; }
+                                try {
+                                    ObjectOutputStream o = new ObjectOutputStream(client.getOutputStream());
+
+                                    // send same packet back over other stream
+                                    o.writeObject(packet);
+                                    System.out.println("We are sending a packet");
+
+                                } catch(SocketException e) { continue; }
+                            }
                         }
-                    }
-                    // System.out.println("Closing connection with client #"+ci+"...");
+                        // System.out.println("Closing connection with client #"+ci+"...");
 //                    try { } catch(IndexOutOfBoundsException e) {  }
 //                    socket.close(); in.close();
-                } catch (Exception e) { e.printStackTrace(); }}
-            }).start();
+                    } catch (Exception e) { e.printStackTrace(); }}
+                }).start();
+            }
+
+
 
         }
     } catch(Exception e) { e.printStackTrace(); }}
