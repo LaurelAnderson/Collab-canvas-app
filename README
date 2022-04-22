@@ -1,0 +1,50 @@
+Canvas Collab Project
+Laurel Anderson, Alexis Brown, Johnathan Chan, Daniel Rehman
+CS 455, Spring 2022, WSUV
+
+Drawing app where multiple clients can connect to a server
+and draw together and see everyone else's drawing in real-time.
+
+Software requirements:
+Clients will need to run the app in Android Studio
+Server.java will need to run in separate ide, something like IntelliJ
+Both will need dependencies setup to reference the Packet class
+Install requirements:
+	SDK packages
+	2 x Pixel 2 API 32
+
+How to run the project:
+After downloading repo, Android Studio may change the SDK file location.
+To check manually, go to File > Project Structure > SDK Location and then
+make sure that the path is where the SDK file is located.
+
+Next, open IntelliJ then File > New > Project from Existing Source...
+and locate the server file: C:.\Desktop\Collab-canvas-app\app\server
+To link the networking dependency, go File > Project Structure > Modules
+then click the "+" then "Import Module" then locate the networking folder:
+C:.\Desktop\Collab-canvas-app\app\networking
+To link it, click on the "Dependencies" tab then "+" then select the networking
+folder and click "OK". Once it populates, make sure the box next to it is checked.
+
+Now build and run the Server.
+Then start two instances of the app on two separate emulators from Android Studio.
+
+Copyright (c) <2022> <Laurel Anderson, Alexis Brown, Johnathan Chan, Daniel Rehman>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
