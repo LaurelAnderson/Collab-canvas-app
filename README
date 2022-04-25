@@ -7,7 +7,7 @@ and draw together and see everyone else's drawing in real-time.
 
 Software requirements:
 Clients will need to run the app in Android Studio
-Server.java will need to run in separate ide, something like IntelliJ
+Server.java will need to run in separate IDE (recommend using IntelliJ)
 Both will need dependencies setup to reference the Packet class
 Install requirements:
 	SDK packages
@@ -28,6 +28,7 @@ folder and click "OK". Once it populates, make sure the box next to it is checke
 
 Now build and run the Server.
 Then start two instances of the app on two separate emulators from Android Studio.
+
 
 Copyright (c) <2022> <Laurel Anderson, Alexis Brown, Johnathan Chan, Daniel Rehman>
 
