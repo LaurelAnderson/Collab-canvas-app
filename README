@@ -52,7 +52,8 @@ Now start the Server, start both emulators and have fun drawing!
 
 Workload distribution:
 Laurel Anderson: Created base app with basic 1 color drawing, assisted in networking, testing, project setup
-Alexis Brown: Packet class, code commenting/cleaning, paired programming, testing, research, debugging
+Alexis Brown: Packet class, code commenting/cleaning, paired programming, testing, research, debugging,
+	added color buttons using Android Studio Builder
 Johnathan Chan: README, research, debugging, paired programming, testing
 Daniel Rehman: Created networking classes, main contributor to networking, testing, project setup
 NOTE: all teammates attended and contributed to paired programming sessions!
