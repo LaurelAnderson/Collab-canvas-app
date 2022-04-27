@@ -20,11 +20,15 @@ To check manually, go to File > Project Structure > SDK Location and then
 make sure that the path is where the SDK file is located.
 Next, open IntelliJ then File > New > Project from Existing Source...
 and locate the server file: C:.\Desktop\Collab-canvas-app\app\server
+Click through and accept all the windows that pop-up.
 To link the networking dependency, click File > Project Structure > Modules
-then click the "+" then "Import Module" then locate the networking folder:
+then click the "+" at the top then "Import Module" then locate the networking folder:
 C:.\Desktop\Collab-canvas-app\app\networking
-To link it, click on the "Dependencies" tab then "+" then select the networking
-folder and click "OK". Once it populates, make sure the box next to it is checked.
+To link it, select the server, then click on the "Dependencies" tab,
+then click "+" below the tabs, select "Module Dependency" then select the
+networking folder and click "OK".
+Once it populates, make sure the "Export" checkbox next to it is checked
+and click "OK".
 
 How to run the project:
 One computer can run the Server and run the app in an emulator
