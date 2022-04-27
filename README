@@ -6,6 +6,7 @@ Drawing app where multiple clients can connect to a server
 and draw together and see everyone else's drawing in real-time.
 
 Software requirements:
+At least 2 computers
 Clients will need to run the app in Android Studio
 Server.java will need to run in separate IDE (recommend using IntelliJ)
 Both will need dependencies setup to reference the Packet class
@@ -13,22 +14,24 @@ Install requirements:
 	SDK packages
 	2 x Pixel 2 API 32
 
-How to run the project:
+Required settings:
 After downloading repo, Android Studio may change the SDK file location.
 To check manually, go to File > Project Structure > SDK Location and then
 make sure that the path is where the SDK file is located.
-
 Next, open IntelliJ then File > New > Project from Existing Source...
 and locate the server file: C:.\Desktop\Collab-canvas-app\app\server
-To link the networking dependency, go File > Project Structure > Modules
+To link the networking dependency, click File > Project Structure > Modules
 then click the "+" then "Import Module" then locate the networking folder:
 C:.\Desktop\Collab-canvas-app\app\networking
 To link it, click on the "Dependencies" tab then "+" then select the networking
 folder and click "OK". Once it populates, make sure the box next to it is checked.
 
-Now build and run the Server.
-Then start two instances of the app on two separate emulators from Android Studio.
-
+How to run the project:
+One computer can run the Server and run the app in an emulator
+The second computer will require changing the socket to the ip of the first computer.
+On computer 1, open command line and enter ipconfig to get the IPv4 address.
+Enter this address into the second computer's MainActivity.java class on line 74.
+Now start the Server, start both emulators and have fun drawing!
 
 Copyright (c) <2022> <Laurel Anderson, Alexis Brown, Johnathan Chan, Daniel Rehman>
 
