@@ -62,14 +62,32 @@
             android:backgroundTint="#AAF0D1" />
 
         <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="yellowButton"
+            android:backgroundTint="#FFDA00" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="redButton"
+            android:backgroundTint="#DC143C" />
+
+        <Button
             android:id="@+id/button7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#F3EFEF"
-            android:text="Erase"
             android:onClick="eraseButton"
-            android:textColor="#000000" />
+            android:text="✏️"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="#000000"
+            app:iconPadding="8dp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

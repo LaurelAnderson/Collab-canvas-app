@@ -13,6 +13,7 @@ import com.example.networking.Packet;
 public class MainActivity extends AppCompatActivity {
     DrawingView drawingView; // view users can draw on
     private Socket socket;
+    private boolean isDrawing = true;
     private TouchListener touch_listener; // listens for user activity
 
     private void start_draw_listener() { // begin listening for user activity
@@ -50,10 +51,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // code for responding to users clicking color options at bottom of the view
-    public void eraseButton(View view) { touch_listener.setColor(0x40ffffff); }
-    public void blueButton(View view) { System.out.println("GREEN"); touch_listener.setColor(0x102196F3); }
-    public void purpleButton(View view) { System.out.println("PURPLE"); touch_listener.setColor(0x10673AB7); }
-    public void greenButton(View view) { System.out.println("BLUE"); touch_listener.setColor(0x10AAF0D1); }
+    public void eraseButton(View view)  { touch_listener.setColor(isDrawing ? 0x40ffffff : 10 << 24); isDrawing = !isDrawing; }
+    public void blueButton(View view)   { touch_listener.setColor(0x102196F3); }
+    public void purpleButton(View view) { touch_listener.setColor(0x10673AB7); }
+    public void greenButton(View view)  { touch_listener.setColor(0x10AAF0D1); }
+    public void yellowButton(View view) { touch_listener.setColor(0x10FFDA00); }
+    public void redButton(View view)    { touch_listener.setColor(0x10DC143C); }
 
     @Override protected void onCreate(Bundle savedInstanceState) { // Bundle used to pass data between activities
             super.onCreate(savedInstanceState);
