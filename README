@@ -15,8 +15,8 @@ Typical main cycle of app:
 
 Code organization:
 Server.java is the back-end that is run in IntelliJ with a Networking dependency
-Drawing app consists of a couple java classes that handle the main activity,
-drawing view, and touch listener.
+Drawing app is run in Android Studio and consists of the following java classes:
+MainActivity, DrawingView, and TouchListener
 
 Software requirements:
 At least 2 computers
