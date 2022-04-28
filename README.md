@@ -19,44 +19,49 @@ Drawing app is run in Android Studio and consists of the following java classes:
 MainActivity, DrawingView, and TouchListener
 
 #### Software requirements:
-Testing will require at least 2 computers\
+* Android Studio
+* IntelliJ
+* SDK packages
+* 2 x Pixel 2 API 32
+* Testing will require at least 2 computers
+
+#### Setting up the project:
+1. After downloading repo, Android Studio may change the SDK file location\
+To check manually, go to File > Project Structure > SDK Location\
+Confirm that the path is where the SDK file is located
+2. Next, open IntelliJ then File > New > Project from Existing Source...\
+Now locate the server file: C:.\Desktop\Collab-canvas-app\app\server\
+Click through and accept all the windows that pop-up
+3. To link the networking dependency, click File > Project Structure > Modules\
+Now click the "+" at the top then "Import Module" then locate the networking folder:\
+C:.\Desktop\Collab-canvas-app\app\networking
+4. To link it, select the server, then click on the "Dependencies" tab\
+Now click "+" below the tabs, select "Module Dependency" then select the networking folder and click "OK"\
+Once it populates, make sure the "Export" checkbox is checked and click "OK"
+
+#### Testing:
 Clients will need to run the app in Android Studio\
 Server.java will need to run in separate IDE (recommend using IntelliJ)\
 Both will need dependencies setup to reference the Packet class
-
-#### Install requirements:
-SDK packages
-2 x Pixel 2 API 32
-
-#### Required settings:
-After downloading repo, Android Studio may change the SDK file location.
-To check manually, go to File > Project Structure > SDK Location and then
-make sure that the path is where the SDK file is located.
-Next, open IntelliJ then File > New > Project from Existing Source...
-and locate the server file: C:.\Desktop\Collab-canvas-app\app\server
-Click through and accept all the windows that pop-up.
-To link the networking dependency, click File > Project Structure > Modules
-then click the "+" at the top then "Import Module" then locate the networking folder:
-C:.\Desktop\Collab-canvas-app\app\networking
-To link it, select the server, then click on the "Dependencies" tab,
-then click "+" below the tabs, select "Module Dependency" then select the
-networking folder and click "OK".
-Once it populates, make sure the "Export" checkbox next to it is checked and click "OK".
-
-#### How to run the project:
 One computer can run the Server and run the app in an emulator.
 The second computer will require changing the socket to the ip of the first computer.
 On computer 1, open command line and enter ipconfig to get the IPv4 address.
 Enter this address into the second computer's MainActivity.java class on line 74.
 Now start the Server, start both emulators and have fun drawing!
 
+#### Required settings:
+
+
 #### Workload distribution:
-Laurel Anderson: Created base app with basic 1 color drawing, assisted in networking, testing, and project setup
-Alexis Brown: Packet class, code commenting/cleaning, paired programming, testing, research, debugging, and
-	added color buttons using Android Studio Builder
-Johnathan Chan: README, research, debugging, paired programming, and testing
-Daniel Rehman: Created networking classes, main contributor to networking, testing, and project setup
-NOTE: all teammates attended and contributed to paired programming sessions!
+##### Laurel Anderson:
+Created base app with basic 1 color drawing, assisted in networking, project setup, debugging, and testing
+##### Alexis Brown:
+Created Packet class, added color buttons, code commenting/cleaning, research, debugging, and testing
+##### Johnathan Chan:
+Created README, research, debugging, and testing
+##### Daniel Rehman:
+Created networking classes, project setup, debugging, and testing
+##### NOTE: all teammates attended and contributed to paired programming sessions!
 
 ## License
 Copyright (c) <2022> <Laurel Anderson, Alexis Brown, Johnathan Chan, Daniel Rehman>
