@@ -47,16 +47,16 @@ Once it populates, make sure the "Export" checkbox is checked and click "OK"
 5. Enter this address into the second computer's MainActivity.java class on line 74
 6. Now start the Server, start both emulators and have fun drawing!
 
-### Workload distribution:
-#### Laurel Anderson:
+## Workload distribution:
+### Laurel Anderson:
 Created base app with basic 1 color drawing, assisted in networking, project setup
-#### Alexis Brown:
+### Alexis Brown:
 Created Packet class, added color buttons, code commenting/cleaning
-#### Johnathan Chan:
+### Johnathan Chan:
 Created README, helped identify and fix simultaneous drawing error
-#### Daniel Rehman:
+### Daniel Rehman:
 Created networking classes, project setup
-##### NOTE: all teammates attended and contributed to paired programming sessions, testing, and debugging of the project!
+#### NOTE: all teammates attended and contributed to paired programming sessions, testing, and debugging of the project!
 
 ## License
 Copyright (c) <2022> <Laurel Anderson, Alexis Brown, Johnathan Chan, Daniel Rehman>
