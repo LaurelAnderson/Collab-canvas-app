@@ -44,9 +44,7 @@ Once it populates, make sure the "Export" checkbox is checked and click "OK"
 2. The computer hosting Server.java will need to run in separate IDE (recommend using IntelliJ)
 3. The second computer will require changing the socket to the ip of the first computer. On computer 1, open command line and enter ipconfig to get the IPv4 address.
 4. Enter this address into the second computer's MainActivity.java class on line 74
-5. On each computer, open and run a single client in Android Studio
-
-Now start the Server, start both emulators and have fun drawing!
+5. Now start the Server, start both emulators and have fun drawing!
 
 #### Workload distribution:
 ##### Laurel Anderson:
@@ -79,3 +77,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+[Back to top](#canvas-collab-project)
