@@ -1,4 +1,4 @@
-Canvas Collab Project
+# Canvas Collab Project
 Laurel Anderson, Alexis Brown, Johnathan Chan, Daniel Rehman
 CS 455, Spring 2022, WSUV
 
