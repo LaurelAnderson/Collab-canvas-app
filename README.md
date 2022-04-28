@@ -53,9 +53,9 @@ Now start the Server, start both emulators and have fun drawing!
 ##### Laurel Anderson:
 Created base app with basic 1 color drawing, assisted in networking, project setup
 ##### Alexis Brown:
-Created Packet class, added color buttons, code commenting/cleaning, research
+Created Packet class, added color buttons, code commenting/cleaning
 ##### Johnathan Chan:
-Created README, research
+Created README, helped identify and fix simultaneous drawing error
 ##### Daniel Rehman:
 Created networking classes, project setup
 ##### NOTE: all teammates attended and contributed to paired programming sessions, testing, and debugging of the project!
