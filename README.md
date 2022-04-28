@@ -42,9 +42,10 @@ Once it populates, make sure the "Export" checkbox is checked and click "OK"
 #### Testing:
 1. On both computers: download the repo and set everything up
 2. The computer hosting Server.java will need to run in separate IDE (recommend using IntelliJ)
-3. The second computer will require changing the socket to the ip of the first computer. On computer 1, open command line and enter ipconfig to get the IPv4 address.
-4. Enter this address into the second computer's MainActivity.java class on line 74
-5. Now start the Server, start both emulators and have fun drawing!
+3. The second computer will require changing the socket to the ip of the first computer.\
+   On computer 1, open command line, enter ipconfig, and get the IPv4 address.
+5. Enter this address into the second computer's MainActivity.java class on line 74
+6. Now start the Server, start both emulators and have fun drawing!
 
 #### Workload distribution:
 ##### Laurel Anderson:
