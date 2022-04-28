@@ -40,13 +40,12 @@ Now click "+" below the tabs, select "Module Dependency" then select the network
 Once it populates, make sure the "Export" checkbox is checked and click "OK"
 
 #### Testing:
-Clients will need to run the app in Android Studio\
-Server.java will need to run in separate IDE (recommend using IntelliJ)\
-Both will need dependencies setup to reference the Packet class
-One computer can run the Server and run the app in an emulator.
-The second computer will require changing the socket to the ip of the first computer.
-On computer 1, open command line and enter ipconfig to get the IPv4 address.
-Enter this address into the second computer's MainActivity.java class on line 74.
+1. On both computers: download the repo and set everything up
+2. The computer hosting Server.java will need to run in separate IDE (recommend using IntelliJ)
+3. The second computer will require changing the socket to the ip of the first computer. On computer 1, open command line and enter ipconfig to get the IPv4 address.
+4. Enter this address into the second computer's MainActivity.java class on line 74
+5. On each computer, open and run a single client in Android Studio
+
 Now start the Server, start both emulators and have fun drawing!
 
 #### Workload distribution:
