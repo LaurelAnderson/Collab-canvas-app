@@ -15,18 +15,18 @@ and draw together and see everyone else's drawing in real-time.
 6. Client updates the canvas according to packet's information
 
 ### Code organization:
-Server.java is the back-end that is run in IntelliJ with a Networking dependency
-Drawing app is run in Android Studio and consists of the following java classes:
-MainActivity, DrawingView, and TouchListener
+Server.java is the back-end that is run in IntelliJ with a Networking dependency.
+Drawing app is run in Android Studio and consists of the following java classes: MainActivity, DrawingView, and TouchListener
 
 #### Software requirements:
-At least 2 computers
+Testing will require at least 2 computers.
 Clients will need to run the app in Android Studio
 Server.java will need to run in separate IDE (recommend using IntelliJ)
 Both will need dependencies setup to reference the Packet class
-Install requirements:
-	SDK packages
-	2 x Pixel 2 API 32
+
+#### Install requirements:
+SDK packages
+2 x Pixel 2 API 32
 
 #### Required settings:
 After downloading repo, Android Studio may change the SDK file location.
