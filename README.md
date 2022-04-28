@@ -49,7 +49,7 @@ Once it populates, make sure the "Export" checkbox is checked and click "OK"
 
 ## Workload distribution:
 ### Laurel Anderson:
-Created base app with basic 1 color drawing, assisted in networking, project setup
+Created base app with basic 1 color drawing, assisted in networking, project setup, recorded demo video
 ### Alexis Brown:
 Created Packet class, added color buttons, code commenting/cleaning
 ### Johnathan Chan:
