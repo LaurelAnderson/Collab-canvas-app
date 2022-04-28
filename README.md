@@ -5,7 +5,8 @@ CS 455, Spring 2022, WSUV
 ## App description:
 Drawing app where multiple clients can connect to a server
 and draw together and see everyone else's drawing in real-time.
-Typical main cycle of app:
+
+#### Typical main cycle of app:
 1. Client connects to the server
 2. User touches and drags on screen
 3. Client asynchronously sends packets to server over TCP
@@ -57,6 +58,7 @@ Johnathan Chan: README, research, debugging, paired programming, and testing
 Daniel Rehman: Created networking classes, main contributor to networking, testing, and project setup
 NOTE: all teammates attended and contributed to paired programming sessions!
 
+## License
 Copyright (c) <2022> <Laurel Anderson, Alexis Brown, Johnathan Chan, Daniel Rehman>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
