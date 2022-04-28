@@ -49,19 +49,16 @@ On computer 1, open command line and enter ipconfig to get the IPv4 address.
 Enter this address into the second computer's MainActivity.java class on line 74.
 Now start the Server, start both emulators and have fun drawing!
 
-#### Required settings:
-
-
 #### Workload distribution:
 ##### Laurel Anderson:
-Created base app with basic 1 color drawing, assisted in networking, project setup, debugging, and testing
+Created base app with basic 1 color drawing, assisted in networking, project setup
 ##### Alexis Brown:
-Created Packet class, added color buttons, code commenting/cleaning, research, debugging, and testing
+Created Packet class, added color buttons, code commenting/cleaning, research
 ##### Johnathan Chan:
-Created README, research, debugging, and testing
+Created README, research
 ##### Daniel Rehman:
-Created networking classes, project setup, debugging, and testing
-##### NOTE: all teammates attended and contributed to paired programming sessions!
+Created networking classes, project setup
+##### NOTE: all teammates attended and contributed to paired programming sessions, testing, and debugging of the project!
 
 ## License
 Copyright (c) <2022> <Laurel Anderson, Alexis Brown, Johnathan Chan, Daniel Rehman>
