@@ -56,7 +56,7 @@ Created Packet class, added color buttons, code commenting/cleaning
 Created README, helped identify and fix simultaneous drawing error
 ### Daniel Rehman:
 Created networking classes, project setup
-#### NOTE: all teammates attended and contributed to paired programming sessions, testing, and debugging of the project!
+#### NOTE: all teammates attended and contributed to paired programming sessions, testing, and debugging!
 
 ## License
 Copyright (c) <2022> <Laurel Anderson, Alexis Brown, Johnathan Chan, Daniel Rehman>
