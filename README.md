@@ -13,7 +13,7 @@ Drawing app where multiple clients connect to a server, draw together, and see e
 5. Client asynchronously receives packets from server
 6. Client updates the canvas according to packet's information
 
-### Code organization:
+#### Code organization:
 Server.java is the back-end that is run in IntelliJ with a Networking dependency\
 Drawing app is run in Android Studio and consists of the following java classes:\
 MainActivity, DrawingView, and TouchListener
