@@ -3,7 +3,7 @@ Laurel Anderson, Alexis Brown, Johnathan Chan, Daniel Rehman\
 CS 455, Spring 2022, WSUV
 
 ## App description:
-Drawing app where multiple clients connect to a server, draw together, and see everyone else's drawing in real-time.
+Drawing app where multiple clients connect to a server, draw together, and see everyone else's drawing in real-time
 
 #### Typical main cycle of app:
 1. Client connects to the server
