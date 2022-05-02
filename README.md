@@ -55,7 +55,7 @@ Created Packet class, added color buttons, code commenting/cleaning
 ### Johnathan Chan:
 Created README, helped identify and fix simultaneous drawing error
 ### Daniel Rehman:
-Created networking classes, project setup
+Helped with project setup, created initial networking implementation, created color and line-width implementation.
 #### NOTE: all teammates attended and contributed to paired programming sessions, testing, and debugging!
 
 ## License
