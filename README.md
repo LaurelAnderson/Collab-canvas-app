@@ -23,27 +23,40 @@ MainActivity, DrawingView, and TouchListener
 * IntelliJ
 * SDK packages
 * 2 x Pixel 2 API 32
-* Testing will require at least 2 computers
+* Simultaneous drawing will require at least 2 computers
 
 #### Setting up the project:
 1. After downloading repo, Android Studio may change the SDK file location\
 To check manually, go to File > Project Structure > SDK Location\
 Confirm that the path is where the SDK file is located
-2. Next, open IntelliJ then File > New > Project from Existing Source...\
+2. To run the server, open server project at C:.\Desktop\Collab-canvas-app\app\server\
+using IntelliJ. If that does not work, follow steps a-c.
+
+a. Open IntelliJ then File > New > Project from Existing Source...\
 Now locate the server file: C:.\Desktop\Collab-canvas-app\app\server\
 Click through and accept all the windows that pop-up
-3. To link the networking dependency, click File > Project Structure > Modules\
+b. To link the networking dependency, click File > Project Structure > Modules\
 Now click the "+" at the top then "Import Module" then locate the networking folder:\
 C:.\Desktop\Collab-canvas-app\app\networking
-4. To link it, select the server, then click on the "Dependencies" tab\
+c. To link it, select the server, then click on the "Dependencies" tab\
 Now click "+" below the tabs, select "Module Dependency" then select the networking folder and click "OK"\
 Once it populates, make sure the "Export" checkbox is checked and click "OK"
 
+3. Download 2 or more emulators in AndroidStudio. We recommend Pixel 2 API 32.
+
 #### Testing:
+
+## 1 Computer:
+1. On computer: download the repo and set everything up
+2. The port in MainActivity is set to "10.0.2.2" by default. This is the local gateway for emulators.
+3. For one computer, you can either set AndroidStudio to "Select Multiple Devices" in the device
+dropdown, or just run one emulator after the other.
+
+## 2 Computers:
 1. On both computers: download the repo and set everything up
 2. The computer hosting Server.java will need to run in separate IDE (recommend using IntelliJ)
 3. The second computer will require changing the socket to the ip of the first computer.\
-   On computer 1, open command line, enter ipconfig, and get the IPv4 address.
+   On computer 1 (computer running the server), open command line, enter ipconfig, and get the IPv4 address.
 5. Enter this address into the second computer's MainActivity.java class on line 74
 6. Now start the Server, start both emulators and have fun drawing!
 
